@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+
+{% block body %}
+    <h1>Nova categoria</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.nome.id_for_label }}">Nome</label>
+            {{ form.nome }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.descricao.id_for_label }}">Descrição</label>
+            {{ form.descricao }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock body %}

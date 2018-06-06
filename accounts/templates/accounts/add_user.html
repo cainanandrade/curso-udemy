@@ -1,0 +1,51 @@
+<!doctype html>
+
+{% load staticfiles %}
+
+{% load widget_tweaks %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css' %}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin" method="post">
+      {% csrf_token %}
+      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Cadastre seu usuário:</h1>
+      <div class="form-control">
+        <label for="{{ form.first_name.id_for_label }}">Primeiro nome</label>
+        {{ form.first_name|add_class:"form-control" }}
+      </div>
+      <div class="form-control">
+        <label for="{{ form.last_name.id_for_label }}">Último nome</label>
+        {{ form.last_name|add_class:"form-control" }}
+      </div>
+      <div class="form-control">
+        <label for="{{ form.username.id_for_label }}">Username</label>
+        {{ form.username|add_class:"form-control" }}
+      </div>
+      <div class="form-control">
+        <label for="{{ form.password.id_for_label }}" typeof="password">Senha</label>
+        {{ form.password|add_class:"form-control"|attr:"type:password" }}
+      </div>
+
+      <button class="btn btn-lg btn-dark btn-block" type="submit">Cadastrar!</button>
+      <br><a href="{% url 'accounts:user_login' %}">Já é cadastrado? Faça o Login!</a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+  </body>
+</html>
